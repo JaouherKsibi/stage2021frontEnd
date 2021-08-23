@@ -1,12 +1,15 @@
 import logo from '../assets/logo.svg';
 import '../css/App.css';
+import AdminLoginComponent from './AdminLoginComponent';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
-  return (
+  return (/*
     <div className="App">
+      
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
+         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
         <a
@@ -16,9 +19,11 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
-        </a>
+        </a> 
+        <AdminLoginComponent/>
       </header>
-    </div>
+    </div>*/
+    <AdminLoginComponent />
   );
 }
 
