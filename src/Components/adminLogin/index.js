@@ -1,9 +1,9 @@
-import '../css/AdminLoginComponent.css'
+import '../../css/AdminLoginComponent.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Container, Row , Col , Card ,Button, Form, InputGroup} from 'react-bootstrap/'
 import React from 'react'
 import {useState} from 'react'
-function AdminLoginComponent(){
+function AdminLoginComponent(props){
     const [ email , setEmail ]= useState('');
     const [ password , setPassword ]= useState('');
     const handleSubmit=(e)=>{
@@ -20,7 +20,7 @@ function AdminLoginComponent(){
             console.log(res1.message==="login Successfull")
             if(res1.message==="login Successfull"){
                 localStorage.setItem('loggedAdmin',JSON.stringify(fakeUser))
-                console.log('logged in ');
+                props.history.push('/dashboard');
             }});
     }
     return(
@@ -64,6 +64,7 @@ function AdminLoginComponent(){
                   
             </Row>
         </Container>
+       
     )
 }
 export default AdminLoginComponent;

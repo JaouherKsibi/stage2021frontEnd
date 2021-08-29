@@ -1,29 +1,19 @@
-import logo from '../assets/logo.svg';
+//import logo from '../assets/logo.svg';
 import '../css/App.css';
-import AdminLoginComponent from './AdminLoginComponent';
+import AdminLoginComponent from './adminLogin/index.js';
 import 'bootstrap/dist/css/bootstrap.min.css'
-
+import { BrowserRouter , Route, Switch } from 'react-router-dom';
+import Dashboard from './adminDashboard/index.js';
 function App() {
-  return (/*
-    <div className="App">
-      
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-         <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a> 
-        <AdminLoginComponent/>
-      </header>
-    </div>*/
-    <AdminLoginComponent />
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route path="/adminLogin" component={AdminLoginComponent} />
+        <Route path="/dashboard" component={Dashboard} />
+      </Switch>
+
+    
+    </BrowserRouter>
   );
 }
 
