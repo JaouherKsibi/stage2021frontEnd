@@ -27,7 +27,7 @@ function AdminLoginComponent(props){
         <Container>
             <Row className="h100">
                <Col lg={6} md={4} sm={12} className="centered marg1">
-                   <Card>
+                   <Card style={{backgroundColor:'transparent',marginLeft:"350px"}}>
                        <Card.Header>
                            <h3>Sign In</h3>
                         </Card.Header>

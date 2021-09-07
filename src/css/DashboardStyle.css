@@ -95,3 +95,18 @@ background: radial-gradient(circle, rgba(0,61,255,1) 0%, rgba(0,212,255,1) 39%, 
 .fass1{
   margin-right: 20px;
 }
+.buttonTable{
+  background-color: transparent;
+  border:none;
+}
+.buttonTable:hover{
+  background-color: blue;
+}
+.modalCard{
+  margin: auto;
+  height: auto;
+}
+.buttons{
+  border: none;
+  background: none;
+}

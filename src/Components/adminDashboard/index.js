@@ -4,7 +4,7 @@ import '../../css/Dashboard.css'
 import DashboardContent from '../DashboardContent'
 import Footer from '../Footer.js'
 import Sidebar from '../Sidebar'
-import GetList from '../test/GetListProducts'
+//import GetList from '../test/GetListProducts'
 function Dashboard(){
         return(
         <div className="d-flex" id="wrapper">
