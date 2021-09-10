@@ -19,7 +19,8 @@ function ProductLine({product,index}){
         fetch('http://localhost:3001/api/UpdateProduct/'+id,
         {   method:'POST',
             headers:{"content-Type":"application/json"},
-            body:JSON.stringify(produit)}
+            body:JSON.stringify(produit)
+        }
         ).then(
             res=>res.text()
             

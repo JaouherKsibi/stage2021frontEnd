@@ -10,13 +10,19 @@ function ProductsTable(props){
     const [productsList, setProductsList] = useState([]);
     async function fetchProductsList() {
         const requestUrl='http://localhost:3001/api/getAllProducts'
-        const response=await fetch(requestUrl);
+        const response=await fetch(requestUrl,{signal:signal});
         const responseJSON=await response.json();
         //console.log(responseJSON);
         setProductsList(responseJSON)
         }
+    const abortController=new AbortController();
+    const signal=abortController.signal;
     useEffect(()=>{
-        fetchProductsList()
+        fetchProductsList().catch(error => {
+        })
+        return function cleanUp(){
+            abortController.abort();
+        }
     },[productsList]);
     //const NumberOfElement=productsList.length;
     return (

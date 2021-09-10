@@ -5,14 +5,19 @@ import User from "./user";
 
 function UsersTable(){
     const [usersList, setUsersList] = useState([]);
+    const abortController=new AbortController();
+    const signal=abortController.signal;
     useEffect(()=>{
         async function fetchUsersList() {
         const requestUrl='http://localhost:3001/api/getAllClients'
-        const response=await fetch(requestUrl);
+        const response=await fetch(requestUrl,{signal:signal});
         const responseJSON=await response.json();
         setUsersList(responseJSON)
         }
-        fetchUsersList()
+        fetchUsersList().catch((err)=>{})
+        return function cleanUp() {
+            abortController.abort();
+        }
     },[usersList]);
     return(
         <div className="container-fluid px-4">

@@ -4,14 +4,19 @@ import CategoryLine from "./CategoryLine";
 
 function CategoriesTable(){
     const [categoriesList, setCategoriesList] = useState([]);
+    const abortController=new AbortController();
+    const signal=abortController.signal;
     useEffect(()=>{
         async function fetchCategoriesList() {
         const requestUrl='http://localhost:3001/api/getAllCategories'
-        const response=await fetch(requestUrl);
+        const response=await fetch(requestUrl,{signal:signal});
         const responseJSON=await response.json();
         setCategoriesList(responseJSON)
         }
-        fetchCategoriesList()
+        fetchCategoriesList().catch(err=>{})
+        return function cleanUp(){
+            abortController.abort();
+        }
     },[categoriesList]);
     return(
         <div className="container-fluid px-4">

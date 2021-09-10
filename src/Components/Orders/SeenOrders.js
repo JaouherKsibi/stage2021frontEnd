@@ -2,15 +2,20 @@ import { useEffect, useState } from "react";
 import Order from "./Order";
 
 function SeenOrders(){
+    const abortController=new AbortController();
+    const signal=abortController.signal;
     const [ordersList, setOrdersList] = useState([]);
     useEffect(()=>{
         async function fetchOrdersList() {
         const requestUrl='http://localhost:3001/api/getSeenOrders'
-        const response=await fetch(requestUrl);
+        const response=await fetch(requestUrl,{signal:signal});
         const responseJSON=await response.json();
         setOrdersList(responseJSON)
         }
-        fetchOrdersList()
+        fetchOrdersList().catch((err)=>{})
+        return function cleanUp(){
+            abortController.abort();
+        }
     });
     return (
         <div className="row my-5">

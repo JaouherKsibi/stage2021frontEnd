@@ -4,15 +4,20 @@ import ProductsTableHeader from "../ProductsTableHeader";
 
 function CategoryProductsTable(props){
     const [productsList, setProductsList] = useState([]);
+    const abortController=new AbortController();
+    const signal=abortController.signal;
     async function fetchProductsList() {
         const requestUrl='http://localhost:3001/api/getProductsByIdCategory/'+props.categoryId
-        const response=await fetch(requestUrl);
+        const response=await fetch(requestUrl,{signal:signal});
         const responseJSON=await response.json();
         //console.log(responseJSON);
         setProductsList(responseJSON)
         }
     useEffect(()=>{
-        fetchProductsList()
+        fetchProductsList().catch(err=>{})
+        return function cleanUp(){
+            abortController.abort();
+        }
     },[productsList]);
     return(
         <div className="col">

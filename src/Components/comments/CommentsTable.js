@@ -3,15 +3,20 @@ import InfosBar from "../InfoBar";
 import Comment from "./comment";
 
 function CommentsTable(){
+    const abortController=new AbortController();
+    const signal =abortController.signal;
     const [CommentsList, setCommentsList] = useState([]);
     useEffect(()=>{
         async function fetchCommentsList() {
         const requestUrl='http://localhost:3001/api/getAllComments'
-        const response=await fetch(requestUrl);
+        const response=await fetch(requestUrl,{signal:signal});
         const responseJSON=await response.json();
         setCommentsList(responseJSON)
         }
-        fetchCommentsList()
+        fetchCommentsList().catch((err)=>{})
+       return function cleanUp(){
+           abortController.abort();
+       }
     },[CommentsList]);
     return(
         <div className="container-fluid px-4">

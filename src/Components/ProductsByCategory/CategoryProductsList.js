@@ -4,16 +4,21 @@ import InfosBar from "../InfoBar";
 
 import CategorySection from "./CategorySection";
 function CategoryProductsList(){
+    const abortController=new AbortController();
+    const signal=abortController.signal;
     const [categoriesList, setCategoriesList] = useState([]);
     async function fetchCategoriesList() {
         const requestUrl='http://localhost:3001/api/getAllCategories'
-        const response=await fetch(requestUrl);
+        const response=await fetch(requestUrl,{signal:signal});
         const responseJSON=await response.json();
         setCategoriesList(responseJSON)
         }
     useEffect(()=>{
         
-        fetchCategoriesList()
+        fetchCategoriesList().catch(err=>{})
+        return function cleanUp(){
+            abortController.abort();
+        }
     },[categoriesList]);
     
     return(

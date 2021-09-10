@@ -4,13 +4,18 @@ import Order from "./Order";
 function NotSeenOrders(){
     const [ordersList, setOrdersList] = useState([]);
     useEffect(()=>{
+        const abortController=new AbortController();
+        const signal=abortController.signal;
         async function fetchOrdersList() {
         const requestUrl='http://localhost:3001/api/getNotSeenOrders'
-        const response=await fetch(requestUrl);
+        const response=await fetch(requestUrl,{signal:signal});
         const responseJSON=await response.json();
         setOrdersList(responseJSON)
         }
-        fetchOrdersList()
+        fetchOrdersList().catch((err)=>{})
+        return function cleanUp(){
+            abortController.abort();
+        }
     });
     return (
         <div className="row my-5">
