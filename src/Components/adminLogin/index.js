@@ -26,15 +26,15 @@ function AdminLoginComponent(props){
     return(
         <Container>
             <Row className="h100">
-               <Col lg={6} md={4} sm={12} className="centered marg1">
-                   <Card style={{backgroundColor:'transparent',marginLeft:"350px"}}>
+               <Col xl={6} lg={6} md={4} sm={12} className="centered marg1">
+                   <Card >
                        <Card.Header>
                            <h3>Sign In</h3>
                         </Card.Header>
                         <Card.Body>
                            <Form onSubmit={handleSubmit} method='POST'>
                                <Form.Group>
-                                   <Form.Label>Email</Form.Label>
+                                   <Form.Label style={{color:'white'}}>Email</Form.Label>
                                    <InputGroup>
                                         <InputGroup.Text>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" fill="currentColor" className="bi bi-person-fill" viewBox="0 0 16 16">
@@ -45,7 +45,7 @@ function AdminLoginComponent(props){
                                    </InputGroup>
                                </Form.Group>
                                <Form.Group >
-                                   <Form.Label>Password</Form.Label>
+                                   <Form.Label style={{color:'white'}}>Password</Form.Label>
                                    <InputGroup>
                                         <InputGroup.Text>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-lock-fill" viewBox="0 0 16 16">
@@ -55,7 +55,7 @@ function AdminLoginComponent(props){
                                    </InputGroup>
                                </Form.Group>
                                <Form.Group className="pad2">
-                                    <Button type="submit" variant="outline-dark">log in</Button>                                   
+                                    <Button type="submit" variant="dark">log in</Button>                                   
                                </Form.Group>                   
                             </Form>
                         </Card.Body>

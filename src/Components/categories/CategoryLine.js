@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
-import { faTrash, faPencilAlt, faEye , faBandAid, faCommentAlt, faDollarSign, faLink, faPlus} from '@fortawesome/free-solid-svg-icons';
+import { useState } from "react";
+import { faTrash, faPencilAlt, faEye , faBandAid, faLink} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '../../css/DashboardStyle.css'
-import { Button, Card, Container, Modal,Form, InputGroup, Image, Figure } from "react-bootstrap";
+import { Button, Card,  Modal,Form, InputGroup,  Figure } from "react-bootstrap";
 
 function CategoryLine({category,index}){
     const [id,setId]=useState("");

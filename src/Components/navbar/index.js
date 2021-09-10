@@ -1,8 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAlignLeft, faUser } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
-
+import { useHistory } from 'react-router-dom';
+import { Dropdown } from "react-bootstrap";
 function AdminDashboardNavbar(props){
+    //const [seen,setSeen]=useState(false);
+    let history = useHistory();
     const toggle=()=>{
         var el = document.getElementById("wrapper");
         var toggleButton = document.getElementById("menu-toggle");
@@ -27,18 +29,17 @@ function AdminDashboardNavbar(props){
 
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle second-text fw-bold" href="#" id="navbarDropdown"
-                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <FontAwesomeIcon icon={faUser}/> {JSON.parse(localStorage.getItem('loggedAdmin')).email}
-                            </a>
-                            <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a className="dropdown-item" href="#">Profile</a></li>
-                                <li><a className="dropdown-item" href="#">Settings</a></li>
-                                <li><a className="dropdown-item" href="#">Logout</a></li>
-                                
-                            </ul>
-                        </li>
+                        <Dropdown>
+                            <Dropdown.Toggle style={{backgroundColor:'transparent',border:'none',transition:"none"}} id="dropdown-basic">
+                            <FontAwesomeIcon icon={faUser}/> {JSON.parse(localStorage.getItem('loggedAdmin')).email}
+                            </Dropdown.Toggle>
+
+                            <Dropdown.Menu>
+                                <Dropdown.Item href="/dashboard">Dashboard</Dropdown.Item>
+                                <Dropdown.Item href="/categories">Categories</Dropdown.Item>
+                                <Dropdown.Item onClick={()=>{localStorage.removeItem('loggedAdmin');history.push('/adminLogin')}}>Logout</Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
                     </ul>
                 </div>
             </nav>

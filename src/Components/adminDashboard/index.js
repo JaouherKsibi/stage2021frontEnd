@@ -1,16 +1,15 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { useEffect , useState } from 'react'
 import '../../css/Dashboard.css'
 import DashboardContent from '../DashboardContent'
-import Footer from '../Footer.js'
+import Footer from '../Footer'
 import Sidebar from '../Sidebar'
-//import GetList from '../test/GetListProducts'
+import React from 'react'
 function Dashboard(){
         return(
-        <div className="d-flex" id="wrapper">
-            <Sidebar/>
-            <DashboardContent   />
-        </div>
+                <div className="d-flex" id="wrapper">
+                        <Sidebar/>
+                        <DashboardContent   />
+                </div>   
         )
 }
 export default Dashboard;

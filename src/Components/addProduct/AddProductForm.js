@@ -1,9 +1,8 @@
 import {useState,useEffect} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { Card ,Button, Form, InputGroup, Toast} from 'react-bootstrap/'
+import { Card ,Button, Form, InputGroup} from 'react-bootstrap/'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBandAid, faCommentAlt, faDollarSign, faLink, faPlus } from '@fortawesome/free-solid-svg-icons';
-import { Alert } from 'bootstrap';
 function AddProductForm(){
     const [categoriesList, setCategoriesList] = useState([]);
     const [productName,setProductName]=useState("");

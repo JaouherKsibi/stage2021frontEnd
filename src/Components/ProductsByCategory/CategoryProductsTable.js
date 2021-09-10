@@ -1,15 +1,11 @@
 import { useEffect, useState } from "react";
-
-import '../../css/DashboardStyle.css'
-import ProductsTableHeader from '../ProductsTableHeader/index.js'
-
 import ProductLine from "../ProductLine";
-import InfosBar from "../InfoBar/index"
+import ProductsTableHeader from "../ProductsTableHeader";
 
-function ProductsTable(props){
+function CategoryProductsTable(props){
     const [productsList, setProductsList] = useState([]);
     async function fetchProductsList() {
-        const requestUrl='http://localhost:3001/api/getAllProducts'
+        const requestUrl='http://localhost:3001/api/getProductsByIdCategory/'+props.categoryId
         const response=await fetch(requestUrl);
         const responseJSON=await response.json();
         //console.log(responseJSON);
@@ -18,14 +14,10 @@ function ProductsTable(props){
     useEffect(()=>{
         fetchProductsList()
     },[productsList]);
-    //const NumberOfElement=productsList.length;
-    return (
-        <div className="container-fluid px-4">
-        <InfosBar />
-        <div className="row my-5">
-            <h3 className="fs-4 mb-3">Recent Orders</h3>
-            <div className="col">
-                <table className="table bg-white rounded shadow-sm  table-hover">
+    return(
+        <div className="col">
+            {
+               productsList.length==0?<p>sorry this category has no products yet </p>:<table className="table bg-white rounded shadow-sm  table-hover">
                     <ProductsTableHeader/>
                     <tbody>
                         {
@@ -36,16 +28,11 @@ function ProductsTable(props){
                             })
                         }
                     </tbody>
-                </table>
+                </table> 
+            }
+                
             </div>
-            
-            
-        </div>
-
-    </div>
-
     )
+
 }
-
-
-export default ProductsTable;
+export default CategoryProductsTable;

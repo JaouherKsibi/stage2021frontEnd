@@ -1,14 +1,12 @@
 import { faCheckCircle, faEye, faTimesCircle, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button, Card, Modal } from "react-bootstrap";
 import '../../css/DashboardStyle.css'
 function Order({order,index}){
     const [seeClientInfos,setSeeClientInfos]=useState(false);
-    const [user,setUser]=useState(order.client);
     const [seeOrder,setSeeOrder]=useState(false);
     const [see,setSee]=useState(false);
-    const [product,setProduct]=useState(order.product);
     function deleteOrder(){
         fetch('http://localhost:3001/api/deleteOrder/'+order._id ).then(
             res=>res.text()

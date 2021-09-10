@@ -11,6 +11,8 @@ import UsersManagement from './usersManagement';
 import Orders from './Orders';
 import Comments from './comments';
 import Sidebar from './Sidebar';
+import Footer from './Footer';
+import ProductsByCategory from './ProductsByCategory';
 function App() {
   return (
     <BrowserRouter>
@@ -24,9 +26,10 @@ function App() {
         <Route path="/ordersManagement" component={Orders} />
         <Route path="/comments" component={Comments} />
         <Route path="/sideBar" component={Sidebar} />
+        <Route path="/productsByCategory" component={ProductsByCategory} />
       </Switch>
-
-    
+    {/*localStorage.getItem('loggedAdmin')!=null?null:<Footer style={{width:'100%'}} />*/}
+      {/*<Footer />*/}
     </BrowserRouter>
   );
 }

@@ -1,11 +1,10 @@
 import '../../css/DashboardStyle.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChartLine, faCoffee, faCommentDots, faGift, faItalic, faLayerGroup, faMapMarkedAlt, faPaperclip, faPowerOff, faProjectDiagram, faShoppingCart, faTachometerAlt, faUsers, faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faCommentDots, faGift, faItalic, faLayerGroup, faPowerOff, faShoppingCart, faTachometerAlt, faUsers, faPlus } from '@fortawesome/free-solid-svg-icons'
 import { useHistory } from 'react-router-dom';
 
-function Sidebar(props){
+function Sidebar(){
     let history = useHistory();
-    /*history.push(url),*/
     return (
         <div className="bg-white" id="sidebar-wrapper">
             <div className="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom">
@@ -19,7 +18,7 @@ function Sidebar(props){
                     <FontAwesomeIcon className="fass" icon={faPlus} />Add New Category</a>
                 <a href="/categories" className="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                     <FontAwesomeIcon className="fass" icon={faLayerGroup} />Categories</a>
-                <a href="#" className="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                <a href="/productsByCategory" className="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                     <FontAwesomeIcon className="fass" icon={faShoppingCart} />Products by Category</a>
                 <a href="/ordersManagement" className="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                     <FontAwesomeIcon className="fass" icon={faGift} />All Orders</a>
@@ -30,8 +29,6 @@ function Sidebar(props){
                 <button onClick={()=>{localStorage.removeItem('loggedAdmin');history.push('/adminLogin')}} className="list-group-item list-group-item-action bg-transparent text-danger fw-bold">
                 <FontAwesomeIcon className="fass" icon={faPowerOff} />Logout 
                 </button>
-                {/**<Link to={{  pathname: "/adminLogin" }}> </Link>*/}
-
             </div>
         </div>
     )

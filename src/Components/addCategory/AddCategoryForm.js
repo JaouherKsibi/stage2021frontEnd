@@ -1,9 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { Card ,Button, Form, InputGroup, Toast} from 'react-bootstrap/'
+import { Card ,Button, Form, InputGroup} from 'react-bootstrap/'
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBandAid, faLink, faPlus } from '@fortawesome/free-solid-svg-icons';
-import { Alert } from 'bootstrap';
 function AddCategoryForm (props){
     const [categoryName,setCategoryName]=useState("");
     const [categoryImageLink,setCategoryImageLink]=useState("");

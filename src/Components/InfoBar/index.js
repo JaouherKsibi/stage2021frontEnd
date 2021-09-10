@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { FaChartArea, FaComment, FaGift, FaLayerGroup, FaSalesforce } from "react-icons/fa";
 
 function InfosBar(){
     const [nbProducts,setNbProducts]=useState(0);
@@ -68,50 +69,46 @@ function InfosBar(){
             <div className="col-md-2">
                 <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                     <div>
-                        <h3 className="fs-2">{nbProducts}</h3>
+                        <h3 className="fs-2"><FaGift style={{marginRight:'15px'}} />{nbProducts} </h3>
                         <p className="fs-5">Products</p>
                     </div>
-                    <i className="fas fa-gift fs-1 primary-text border rounded-full secondary-bg p-3"></i>
                 </div>
             </div>
             <div className="col-md-2">
                 <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                    <div>
-                        <h3 className="fs-2">{nbCatgories}</h3>
+                    <div style={{margin:0}}>
+                        <h3 className="fs-2"><FaLayerGroup style={{marginRight:'15px'}} />{nbCatgories} </h3>
                         <p className="fs-5">Categories</p>
                     </div>
-                    <i className="fas fa-gift fs-1 primary-text border rounded-full secondary-bg p-3"></i>
                 </div>
             </div>
 
             <div className="col-md-2">
                 <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                     <div>
-                        <h3 className="fs-2">{nbOrders}</h3>
+                        <h3 className="fs-2"> <FaSalesforce /> {nbOrders}</h3>
                         <p className="fs-5">Orders</p>
                     </div>
                     <i
-                        className="fas fa-hand-holding-usd fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                       ></i>
                 </div>
             </div>
 
             <div className="col-md-3">
                 <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                     <div>
-                        <h3 className="fs-2">{nbComments}</h3>
+                        <h3 className="fs-2"><FaComment /> {nbComments}</h3>
                         <p className="fs-5">New comments</p>
                     </div>
-                    <i className="fas fa-truck fs-1 primary-text border rounded-full secondary-bg p-3"></i>
                 </div>
             </div>
 
             <div className="col-md-3">
                 <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                     <div>
-                        <h3 className="fs-2">+{nbNotDelevered} </h3>
+                        <h3 className="fs-2"><FaChartArea /> +{nbNotDelevered} </h3>
                         <p className="fs-5">New Orders</p>
                     </div>
-                    <i className="fas fa-chart-line fs-1 primary-text border rounded-full secondary-bg p-3"></i>
                 </div>
             </div>
         </div>

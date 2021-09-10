@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { faTrash, faPencilAlt, faEye , faBandAid, faCommentAlt, faDollarSign, faLink, faPlus} from '@fortawesome/free-solid-svg-icons';
+import { faTrash, faPencilAlt, faEye , faBandAid, faCommentAlt, faDollarSign, faLink} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '../../css/DashboardStyle.css'
-import { Button, Card, Container, Modal,Form, InputGroup } from "react-bootstrap";
+import { Button, Card, Modal,Form, InputGroup } from "react-bootstrap";
 function ProductLine({product,index}){
     function cancel(){
         setId(product._id)
