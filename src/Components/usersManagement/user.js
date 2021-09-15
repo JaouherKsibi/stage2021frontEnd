@@ -1,6 +1,6 @@
 import { faEye, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Button, Card, Modal, Table } from "react-bootstrap";
 import '../../css/DashboardStyle.css'
 
@@ -30,6 +30,7 @@ function User(props){
         
     }
     return(
+        
         <tr>
             <th scope="row">{props.index+1}</th>
             <td>{user.nom} </td>
@@ -37,7 +38,8 @@ function User(props){
             <td><button onClick={()=>{showUser() }} style={{"border": "none" ,"backgroundColor":"transparent",color:"green"}}><FontAwesomeIcon icon={faEye}/> </button> </td>
             <td> <button onClick={()=>{showOrdersList(user._id)}} style={{"border": "none" ,"backgroundColor":"transparent" , color:"orange"}}><FontAwesomeIcon icon={faEye}/> </button></td>
             <td> <button onClick={()=>{deleteUser(user._id)}} style={{"border": "none" ,"backgroundColor":"transparent" ,color:"red"}}><FontAwesomeIcon icon={faTrash}/></button></td>
-            <Modal  onHide={()=>{setSeeInfos(false)}} show={seeInfos} aria-labelledby="contained-modal-title-vcenter" size="auto" >
+            <React.StrictMode>
+                <Modal  onHide={()=>{setSeeInfos(false)}} show={seeInfos} aria-labelledby="contained-modal-title-vcenter" size="auto" >
                 <Modal.Header>
                     <Modal.Title>Show Client Infos</Modal.Title>
                 </Modal.Header>
@@ -124,8 +126,9 @@ function User(props){
                         </Card.Body>
                     </Card>
                 </Modal.Body>
-            </Modal>
+            </Modal></React.StrictMode>
         </tr>
+        
     )
 }
 export default User;

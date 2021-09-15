@@ -29,9 +29,9 @@ function CommentsTable(){
                     <thead>
                         <tr>
                             <th scope="col" width="50">#</th>
-                            <th scope="col">nom </th>
-                            <th scope="col">email </th>
-                            <th scope="col">message </th>
+                            <th scope="col">First Name </th>
+                            <th scope="col">Email </th>
+                            <th scope="col">Subject </th>
                             <th scope="col"  width="50">Show</th>
                             <th scope="col"  width="50">Update</th>
                             <th scope="col"  width="50">Delete</th>

@@ -13,10 +13,17 @@ import Comments from './comments';
 import Sidebar from './Sidebar';
 import Footer from './Footer';
 import ProductsByCategory from './ProductsByCategory';
+import ContactPage from './ContactPage';
+import HomePage from './Home';
+import ProductsByCategoryClients from './CategoryClient';
+import AboutUs from './aboutUs';
+import Search from './search';
+import CategoryPageClient from './categoryPageClient';
 function App() {
   return (
     <BrowserRouter>
       <Switch>
+      <Route path="/home" component={HomePage} />
         <Route path="/adminLogin" component={AdminLoginComponent} />
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/addProduct" component={AddProduct} />
@@ -27,6 +34,11 @@ function App() {
         <Route path="/comments" component={Comments} />
         <Route path="/sideBar" component={Sidebar} />
         <Route path="/productsByCategory" component={ProductsByCategory} />
+        <Route path="/contact" component={ContactPage} />
+        <Route path="/category/:idCategory" component={ProductsByCategoryClients} />
+        <Route path="/aboutUs" component={AboutUs} />
+        <Route path="/search" component={Search} />
+        <Route path="/categoriesFilter" component={CategoryPageClient} />
       </Switch>
     {/*localStorage.getItem('loggedAdmin')!=null?null:<Footer style={{width:'100%'}} />*/}
       {/*<Footer />*/}

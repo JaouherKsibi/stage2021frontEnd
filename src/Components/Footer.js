@@ -16,7 +16,7 @@ function Footer(){
     },[categoriesList]);
     return (
         <div className="footer-copyright-area "   >
-            <footer className="text-center text-lg-start text-muted">
+            <footer className="text-center text-lg-start text-muted" style={{backgroundColor:'#474e5d',color:"#fff" }}>
             <section
                 className="d-flex justify-content-center  p-4 border-bottom"
                 id="social-media"
@@ -88,9 +88,10 @@ function Footer(){
                     </h6>
                     {
                             categoriesList.map((category,index)=>{
+                                let link="/category/"+category._id;
                                 return(
                                 <p key={category._id}>
-                        <a href="#!" className="text-reset">{category.nom}</a>
+                        <a href={link} className="text-reset">{category.nom}</a>
                     </p>  
                                )
                             })
@@ -105,16 +106,16 @@ function Footer(){
                         Useful links
                     </h6>
                     <p>
-                        <a href="#!" className="text-reset">Welcome Page </a>
+                        <a href="/home" className="text-reset">Welcome Page </a>
                     </p>
                     <p>
-                        <a href="#!" className="text-reset">Categories </a>
+                        <a href="/aboutUs" className="text-reset">about us </a>
                     </p>
                     <p>
-                        <a href="#social-media" className="text-reset">Social Media </a>
+                        <a href="/contact" className="text-reset">Contact </a>
                     </p>
                     <p>
-                        <a href="#!" className="text-reset">Help</a>
+                        <a href="/contact" className="text-reset">Help</a>
                     </p>
                     </div>
                     

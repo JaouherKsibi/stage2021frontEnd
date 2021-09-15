@@ -1,0 +1,14 @@
+.slick-arrow {
+    background-color: red !important;
+    height: 35px;
+   /* width :100%;*/
+    width: 35px;
+    border-radius: 100px;
+
+  }
+  .slick-arrow:hover,
+  .slick-arrow:active,
+  .slick-arrow:focus {
+    /*background-color: red !important;*/
+  }
+  

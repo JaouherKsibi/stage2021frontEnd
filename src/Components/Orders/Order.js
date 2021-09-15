@@ -1,9 +1,10 @@
 import { faCheckCircle, faEye, faTimesCircle, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Button, Card, Modal } from "react-bootstrap";
 import '../../css/DashboardStyle.css'
 function Order({order,index}){
+    console.log(order);
     const [seeClientInfos,setSeeClientInfos]=useState(false);
     const [seeOrder,setSeeOrder]=useState(false);
     const [see,setSee]=useState(false);
@@ -61,6 +62,7 @@ function Order({order,index}){
             <td><button className='buttons' onClick={()=>{showOrder()}}>show</button> </td>
             <td>{order.seen===false?<button className='buttons' onClick={()=>{updateOrder()}}><FontAwesomeIcon icon={faEye} /> </button>: <FontAwesomeIcon icon={faCheckCircle} />} </td>
             <td><button onClick={()=>{deleteOrder()}} className='buttons'><FontAwesomeIcon icon={faTrash}/> </button> </td>
+            <React.StrictMode>
             <Modal  onHide={()=>{closeSeeClient()}} show={seeClientInfos} aria-labelledby="contained-modal-title-vcenter" size="auto" >
                 <Modal.Header>
                     <Modal.Title>Show Client Infos</Modal.Title>
@@ -276,7 +278,9 @@ function Order({order,index}){
                     <Button variant="outline-dark" onClick={()=>{setSeeOrder(false)}} >close</Button>
                 </Modal.Footer>
             </Modal>
+            </React.StrictMode>
        </tr>
+      
     )
 }
 export default Order;
